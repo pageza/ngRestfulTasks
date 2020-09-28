@@ -16,8 +16,8 @@ module.exports = {
     },
     createTask: (req,res) => {
         const newTask = new Task()
-        newTask.title = req.body.title;
-        newTask.description = req.body.description;
+        newTask.title = req.body.data.title;
+        newTask.description = req.body.data.description;
         newTask.save()
             .then( newTask =>  res.redirect('/tasks'))
             .catch(err =>  res.json(err))
@@ -28,7 +28,7 @@ module.exports = {
             description: req.body.description,
             completed: req.body.completed
         })
-            .then( res.redirect('/tasks'))
+            // .then(res.redirect('/tasks'))
             .catch( err =>  res.json(err))
     },
     destroyTask: (req,res) => {

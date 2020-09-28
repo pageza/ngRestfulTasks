@@ -1,0 +1,16 @@
+<div>
+    <div>
+      <h1>This is the Selected Task to show</h1>
+      <h2>{{taskToShow.title}}</h2>
+      <h3>{{taskToShow.description}} </h3>
+      <button (click)="edit = true" >Edit</button>
+      <button (click)="deleteTask(taskToShow._id)" >Delete</button>
+    </div>
+    <div *ngIf="edit" >
+      <form (submit)="editTask(task._id)">
+        <input type="text" name="taskToShow.title" [(ngModel)]="taskToShow.title" placeholder="{{taskToShow.title}}">
+        <input type="text" name="taskToShow.description" [(ngModel)]="taskToShow.description" placeholder="{{taskToShow.description}}">
+        <input type="submit" value="Submit Task">
+      </form>
+    </div>
+  </div>
